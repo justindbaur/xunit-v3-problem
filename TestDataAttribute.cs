@@ -11,19 +11,9 @@ public class TestDataAttribute : DataAttribute
         return new(
         [
             new TheoryDataRow(1, 2)
-            {
-                Traits = new Dictionary<string, HashSet<string>>
-                {
-                    ["MyTrait"] = ["One"],
-                }
-            },
-            new TheoryDataRow(1, 2)
-            {
-                Traits = new Dictionary<string, HashSet<string>>
-                {
-                    ["MyTrait"] = ["Two"],
-                }
-            },
+                .WithTrait("MyTrait", "One"),
+            new TheoryDataRow(2, 1)
+                .WithTrait("MyTrait", "Two"),
         ]);
     }
 
